@@ -1,13 +1,21 @@
 import java.util.Date;
 
 public class Event {
+    public static int compteurId;
     Date startDate;
     Date finishDate;
     String name;
     int id;
 
-    public Event() {
+    public Event(Date startDate, Date finishDate, String name, User owner) {
+        this.startDate = startDate;
+        this.finishDate = finishDate;
+        this.name = name;
+        this.id = compteurId;
+        compteurId++;
     }
+
+    public Event(){}
 
     public Date getStartDate() {
         return startDate;
