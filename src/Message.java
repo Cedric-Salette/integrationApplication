@@ -1,34 +1,38 @@
 public class Message {
     public static int compteurId = 0;
-    int senderId;
-    int receiverId;
+    User sender;
+    User receiver;
     String content;
     Boolean isRead;
     int id;
 
-    public Message(int senderId, int receiverId, String content, Boolean isRead) {
-        this.senderId = senderId;
-        this.receiverId = receiverId;
+    public Message(User sender, User receiver, String content, Boolean isRead) {
+        this.sender = sender;
+        this.receiver = receiver;
         this.content = content;
         this.isRead = isRead;
         this.id = compteurId;
         compteurId++;
     }
 
-    public int getSenderId() {
-        return senderId;
+    public void showMessageDetails(){
+        System.out.println(content + " || (id:" + id + ") Ce message a été envoyé par " + sender.getFirstName() + " pour " + receiver.getFirstName() + ". Lu ? " + isRead);
     }
 
-    public void setSenderId(int senderId) {
-        this.senderId = senderId;
+    public User getSender() {
+        return sender;
     }
 
-    public int getReceiverId() {
-        return receiverId;
+    public void setSender(User sender) {
+        this.sender = sender;
     }
 
-    public void setReceiverId(int receiverId) {
-        this.receiverId = receiverId;
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 
     public Message(String content, Boolean isRead, int id) {

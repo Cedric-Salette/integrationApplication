@@ -5,14 +5,22 @@ public class User {
     String firstName;
     String lastName;
     int id;
+
+    public Agenda getMonAgenda() {
+        return monAgenda;
+    }
+
+    public void setMonAgenda(Agenda monAgenda) {
+        this.monAgenda = monAgenda;
+    }
+
     Agenda monAgenda;
 
 
-    // Crée un nouvel agenda et le lui associé. Ajouté également cet agenda dans la liste Carpool.
-    public User(String firstName, String lastName, Agenda monAgenda) {
+    // Utiliser la fonction dans UserManagement pour créer un User.
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.monAgenda = monAgenda;
         this.id = compteurId;
         compteurId++;
     }
