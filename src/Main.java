@@ -1,4 +1,5 @@
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -6,6 +7,16 @@ public class Main {
     static DateFormat shortDateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     public static void main(String[] args){
+        SimpleDateFormat formater = null;
+        formater = new SimpleDateFormat("dd-MM-yyyy hh'H'mm");
+        SimpleDateFormat formaterJour = null;
+        formaterJour = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat formaterHeure = null;
+        formaterHeure = new SimpleDateFormat("hh'H'mm");
+        Date today = new Date();
+        System.out.println(formater.format(today));
+        System.out.println(formaterJour.format(today));
+        System.out.println(formaterHeure.format(today));
 
         // Test de la classe User & UserManagement
         /*
@@ -27,7 +38,7 @@ public class Main {
 
 
         // Test de la classe Agenda & AgendaManagement
-        /*
+
         System.out.println("\n--------------TRY OF agendaCreatedInUser--------------------");
         UserManagement.createUser("Cedric", "SALETTE");
         UserManagement.createUser("Dimitri", "Czerni");
@@ -47,12 +58,12 @@ public class Main {
         Date aujourdhui4 = new Date(System.currentTimeMillis() - 4*(3600 * 1000));
         Date aujourdhui5 = new Date(System.currentTimeMillis() - 5*(3600 * 1000));
 
-        Agenda agenda = UserManagement.getUserById(1).getMonAgenda();
+        Agenda agenda = UserManagement.getUserById(0).getMonAgenda();
         agenda.showEvents();
-
-        Event event = new Event(shortDateFormat.format(aujourdhui1), shortDateFormat.format(aujourdhui), "repas");
-        Event event1 = new Event(shortDateFormat.format(aujourdhui5), shortDateFormat.format(aujourdhui4), "café");
-        Event event2 = new Event(shortDateFormat.format(aujourdhui3), shortDateFormat.format(aujourdhui2), "petit déjeuner");
+        //<tring startDate, String finishDate, String jourDate, String heurDebut, String heurFin, String name
+        Event event = new Event(formater.format(aujourdhui1), formater.format(aujourdhui), formaterJour.format(aujourdhui), formaterHeure.format(aujourdhui1), formaterHeure.format(aujourdhui), "repas");
+        Event event1 = new Event(formater.format(aujourdhui5), formater.format(aujourdhui4), formaterJour.format(aujourdhui5), formaterHeure.format(aujourdhui5), formaterHeure.format(aujourdhui4), "café");
+        Event event2 = new Event(formater.format(aujourdhui3), formater.format(aujourdhui2), formaterJour.format(aujourdhui3), formaterHeure.format(aujourdhui3), formaterHeure.format(aujourdhui2), "petit déjeuner");
 
         agenda.newEvent(event);
         agenda.newEvent(event1);
@@ -65,12 +76,15 @@ public class Main {
 
         agenda.deleteEvent(1);
         agenda.showEvents();
-         */
+
+
+
+
 
 
 
         // Test de la classe Message &  MessageManagement
-
+        /*
         UserManagement.createUser("Cedric", "SALETTE");
         UserManagement.createUser("Dimitri", "Czerni");
         UserManagement.createUser("Nicolas", "Billy");
@@ -93,7 +107,7 @@ public class Main {
 
         List<Message> maListeUnread = MessageManagement.getUnreadMessages(0);
 
-        System.out.println("hey");
+        System.out.println("hey");*/
 
 
 
