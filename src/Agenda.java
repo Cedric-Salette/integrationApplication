@@ -15,9 +15,9 @@ public class Agenda {
         compteurId++;
     }
 
-    public void showEvents(){
+    public void showEvents() {
         System.out.println("Affichage des " + mesEvents.size() + " évènements de " + owner.getFirstName());
-        for(int i = 0; i < mesEvents.size(); i++){
+        for (int i = 0; i < mesEvents.size(); i++) {
             mesEvents.get(i).showDetails();
         }
     }
@@ -32,18 +32,17 @@ public class Agenda {
         return monEvent;
     }
 
-        /*private List<Event> getEventsByDay(Date day) {
+
+    public List<Event> getEventsByDay(String day) {
         List<Event> eventsOfDay = new ArrayList<>();
         for (int i = 0; i < mesEvents.size(); i++) {
-            // Comparer le jour et non pas la date exacte
-            if (mesEvents.get(i).getStartDate() == day) {
+            if (mesEvents.get(i).jourDate.equals(day)) {
                 eventsOfDay.add(mesEvents.get(i));
             }
         }
         return eventsOfDay;
 
-    }*/
-
+    }
 
 
     public void deleteEvent(int eventId) {
